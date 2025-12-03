@@ -1,0 +1,206 @@
+<html>
+    <head>
+        <title>bukin navigation</title>
+        <style>
+             *{ margin: o;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "poopies". sans-serif;
+             }
+            body{
+                background-color: #FF8834;
+            }
+            .navbar{
+                background-color: #F76700;
+                padding: 1rem 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: white;
+                position: relative;
+                z-index: 100;
+            }
+            .logo{
+                font-size: 1.5rem;
+                font-weight: 600;
+                letter-spacing: 1px
+            }
+            .nav-links{
+                display: flex;
+                list-style: none;
+                gap: 20px;
+            }
+            .nav-links a{
+                text-decoration: none;
+                color: #CBD5E1;
+                font-weight: 300;
+                transition: color 0.1;
+
+            }
+            .nav-links a:hover{
+                color: white;
+            }
+            .dropdown{
+                position: relative;
+            }
+            .dropdown-menu{
+                position: absolute;
+                top: 140%;
+                left: 0%;
+                background-color: #F76700;
+                min-width: 200px;
+                list-style: none;
+                padding: 10px 0px;
+                border-radius: 8px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                border-top: 3px;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(15px);
+                transition: all 0.3s cubic-bezier(0.69.-0.55.0.27.1.55);
+                z-index:200px;
+
+            }
+            .dropdown-menu::before{
+                content: "";
+                position: absolute;
+                top: -9px;
+                left: 20px;
+                border-left: 6px;
+                border-right: 6px;
+                border-bottom: 6px;
+            }
+            .dropdown::after{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 30px;
+                top: 100%;
+                left: 0;
+            }
+            .dropdown-menu li a{
+                display: block;
+                padding: 12px 25px;
+                color: #CBD5EL;
+                font-size:0.95rem;
+                transition: all 0.3s ease;
+                border-bottom:1px solid rgba(255.255.255.0.05;)
+            }
+            .dropdown-menu li:last-child a {
+                border-bottom: none;
+            }
+            .dropdown-menu li a:hover{
+                background-color: #334155;
+                color: #38bdf8;
+                padding-left: 35px;
+            }
+            .dropdown:hover .dropdown-menu{
+                opacity: 1;
+                visibility: visible;
+                top: 120%;
+                transform: translateY(0);
+            }
+            .hamburger{
+                display: none;
+                cursor: pointer;
+                flex-direction: column;
+                gap: 5px;
+                z-index: 101;
+            }
+            .hamburger span{
+                width: 25px;
+                height: 3px;
+                background-color: white;
+                border-radius: 5px;
+                transition: all 0.3 ease;
+            }
+            @media(max-width: 768px){
+                .hamburger{
+                    display: flex;
+                
+
+            
+            }
+            .nav-links{
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 100%;
+              background-color: #1e293b;
+              flex-direction: column;
+              align-items: center;
+              max-height: 0;
+              padding: 0;
+              overflow: hidden;
+              transition: all 0.4s ease-in-out;-moz-border-radius: z-index:99;
+            }
+            .nav-links.active{
+              max-height: 500px;
+              padding: 20px 0;
+              opacity: 1;
+              box-shadow: 0 10px 15px rgba(0,0,0,0,0,1);
+            }
+            .dropdown-menu{
+              position: static;
+              opacity: 1;
+              visibility: visible;
+              box-shadow: none;
+              text-align: center;
+              display: none;
+              width: 100%;
+            }
+            .dropdown:hover .dropdown-menu{
+              display: block;
+              background-color: #0f172a;
+            }
+            .hamburger.toggle span:nth-child(1){
+              transform: rotate(45deg); translate(5px,6px);
+            }
+            .hamburger.toggle span:nth-child(2){
+              opacity: 0;
+            }
+            .hamburger.toggle span:nth-child(3){
+              transform: rotate(-45deg); translate(5px,-6px);
+            }
+            }
+
+
+            
+
+
+
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="lodo">pusat solusi</div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="000">beranda</a></li>
+               <li class="dropdown"><a href="000">tutorial</a>
+            <ul class="dropdown-menu">
+                <li><a href="000">Belajar HTML</a></li>
+                <li><a href="000">Belajar CSS</a></li>
+                <li><a href="000">Belajar JS</a></li>
+                    
+            </ul></li>
+               <li><a href="000">tentang</a></li>
+               <li><a href="000">kontak</a></li>
+               
+            </ul>
+        </nav>
+         <script>
+          const hamburger=document.querySelector(".hamburger");
+          const navlinks=document.querySelector(".nav-links");
+          hamburger.addEventListener("click",() => {
+            navlinks.classList.toggle("active");
+            hamburger.classList.toggle("toggle");
+          });
+        </script>
+
+    </body>
+</html>
